@@ -22,15 +22,12 @@ int main(int argc, string argv[]){
     printf("Text: ");
     string txt = GetString();  
 
-    printf("Encrypted: ");
-    encrypt(txt,k);  
-    printf("\n");
-    printf("Key: %d", k);
-
+    printf("Encrypted text: ");
+    encrypt(txt,k); 
+    
     printf("\n");
     return 0;
 }
-
 
 
 void encrypt(string s, int c){
@@ -43,27 +40,25 @@ void encrypt(string s, int c){
  
            printf(" ");
 
-        }
-      
-
-        if (isupper(s[i])){
-
-            int a = s[i];
-            int b = (a - 65 + c) % 26;
-            printf("%c", b + 65);
-
-        }
-
-        if (islower(s[i])){
+        }else if (islower(s[i])){
     
             int a = s[i];
             int b = (a - 97 + c) % 26;
             printf("%c", b + 97);        
         
-        }
-        
-       
+        }else if (isupper(s[i])){
 
+            int a = s[i];
+            int b = (a - 65 + c) % 26;
+            printf("%c", b + 65);
+
+        }else{
+            
+            printf("%c", s[i]);        
+        }
+
+        
+     
     }
 }
 
