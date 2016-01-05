@@ -29,20 +29,18 @@ int main(int argc, string argv[]){
 
 void vigenere(string s, string c){
 
-        int n = strlen(s), 
-            d, 
-            t;        
+                
 
-        for(int i = 0, q = 0; i < n; i++,q++ ){
-
-        d = c[q];       
+        for(int i = 0,q = 0, n = strlen(s), d, t; i < n; i++, q++){  
     
         if(q > strlen(c)){
             
             q = 0;
 
         }
-        
+
+        d = c[q];        
+
         if(!isalpha(s[i])){
         
             q = q - 1;
@@ -50,11 +48,11 @@ void vigenere(string s, string c){
         
         if (isupper(d)){
 
-            d = d - 'A';
+            d = d - 65;
         }
         if (islower(d)){
             
-            d = d - 'a';        
+            d = d - 97;        
         }
         
         t = s[i] + d;
@@ -71,10 +69,12 @@ void vigenere(string s, string c){
         }
         
         if(isalpha(s[i])){
-
+            
             printf("%c", t);
-        }else{
-
+        }
+        
+        else{
+        
             printf("%c", s[i]);
         }
     }     
